@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="build" content="v2">
-  <meta name="description" content="Lagom Næring — European & Mediterranean inspired meals crafted for energy, focus & balance. Corporate lunches, catering, and meal subscriptions.">
+  <meta name="build" content="v3">
+  <meta name="description" content="Lagom Næring — European & Mediterranean inspired meals crafted for energy, focus & balance. Nordic Seed Crackers, corporate lunches, catering, and meal subscriptions.">
   <title>Lagom Næring — Delicious. Wholesome.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,16 +166,71 @@
     .svc-card p  { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
     @media (max-width: 720px) { .services-grid { grid-template-columns: 1fr; } }
 
+    /* ── Nordic Seed Crackers ─────────────────────────── */
+    .crackers { background: var(--cream-alt); }
+    .crackers-hero-img {
+      width: 100%; max-height: 500px; object-fit: cover; object-position: center 40%;
+      border-radius: 10px; margin: 2.5rem 0 2rem;
+    }
+    .crackers-badges {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem;
+    }
+    .crackers-badge {
+      background: var(--green); color: #fff; border-radius: 50px;
+      padding: 0.38rem 1.05rem; font-size: 0.76rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .crackers-flavours {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem; margin-bottom: 4rem;
+    }
+    .flavour-card {
+      background: #fff; border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(139,107,0,0.13);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .flavour-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.1); transform: translateY(-4px); }
+    .flavour-card img {
+      width: 100%; height: 280px; object-fit: cover; object-position: center 30%;
+    }
+    .flavour-info { padding: 1.4rem 1.5rem 1.6rem; }
+    .flavour-info h3 { color: var(--green-dark); margin-bottom: 0.5rem; }
+    .flavour-info p  { color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+    .crackers-pair {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .crackers-pair img {
+      width: 100%; border-radius: 10px; height: 420px; object-fit: cover;
+    }
+    .crackers-pair-text h3 {
+      color: var(--green-dark); margin-bottom: 1.1rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+    .crackers-pair-text p { color: var(--muted); font-size: 0.97rem; margin-bottom: 0.85rem; line-height: 1.7; }
+    .cracker-weight {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); margin-top: 1.3rem; display: block;
+    }
+    .cracker-cta { margin-top: 1.8rem; }
+    @media (max-width: 760px) {
+      .crackers-flavours { grid-template-columns: 1fr; }
+      .crackers-pair     { grid-template-columns: 1fr; }
+      .crackers-pair img { height: 280px; }
+    }
+    @media (min-width: 480px) and (max-width: 760px) {
+      .crackers-flavours { grid-template-columns: 1fr 1fr; }
+    }
+
     /* ── Quote Banner ─────────────────────────────────── */
-    .quote-banner { background: var(--cream-alt); text-align: center; padding: 5.5rem 0; }
+    .quote-banner { background: var(--green-dark); text-align: center; padding: 5.5rem 0; }
     .quote-text {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(1.75rem, 4vw, 2.9rem); color: var(--green-dark);
+      font-size: clamp(1.75rem, 4vw, 2.9rem); color: #fff;
       max-width: 720px; margin: 0 auto 0.8rem; line-height: 1.3;
     }
     .quote-byline {
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gold);
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
     }
 
     /* ── Gallery ──────────────────────────────────────── */
@@ -214,7 +269,7 @@
       overflow: hidden; border: 3px solid var(--cream-alt);
     }
     .founder-photo img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
     }
     .founder-body h3  { color: var(--green-dark); margin-bottom: 0.3rem; font-size: 1.45rem; }
     .founder-role     {
@@ -230,7 +285,7 @@
     /* ── Inspired-by strip ────────────────────────────── */
     .lagom-strip {
       background: var(--green-dark); color: rgba(255,255,255,0.75);
-      padding: 1.8rem 0; text-align: center; font-size: 0.92rem;
+      padding: 1.8rem 0; text-align: center;
       font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
     }
     .lagom-strip strong { color: #fff; font-style: normal; font-weight: 600; }
@@ -249,14 +304,13 @@
       display: flex; align-items: center; gap: 0.8rem;
       color: rgba(255,255,255,0.82); font-size: 0.97rem;
     }
-    .cinfo-list .ci { /* icon circle */
+    .cinfo-list .ci {
       width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
       background: rgba(255,255,255,0.1); display: flex;
       align-items: center; justify-content: center; font-size: 0.95rem;
     }
     .cinfo-list a { color: rgba(255,255,255,0.82); transition: color 0.2s; }
     .cinfo-list a:hover { color: #fff; }
-    /* Form */
     .contact-form h3 {
       font-family: 'Cormorant Garamond', serif; font-size: 1.75rem;
       color: #fff; margin-bottom: 1.6rem;
@@ -311,6 +365,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#crackers">Crackers</a></li>
       <li><a href="#gallery">Menu</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -337,7 +392,7 @@
       </p>
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-green">Pre-order Now</a>
-        <a href="#services" class="btn btn-outline">Explore Services</a>
+        <a href="#crackers" class="btn btn-outline">Our Crackers</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -412,6 +467,76 @@
 </section>
 
 
+<!-- ── Nordic Seed Crackers ──────────────────────────────── -->
+<section class="section crackers" id="crackers">
+  <div class="container">
+    <p class="eye-label">Signature Product</p>
+    <h2 class="section-title">Nordic Seed Crackers</h2>
+    <p class="section-sub">Knäckebröd — slow-baked, seed-rich crackers handcrafted in Bangalore. The desk snack that actually satisfies.</p>
+
+    <img
+      class="crackers-hero-img"
+      src="images/6Rm3-2026-02-R63_7384.jpg"
+      alt="Nordic Seed Crackers — Classico, Rosemary and Chilli flavours"
+    >
+
+    <div class="crackers-badges">
+      <span class="crackers-badge">🌾 Slow-baked</span>
+      <span class="crackers-badge">🌱 Seed Rich</span>
+      <span class="crackers-badge">✅ No Additives</span>
+      <span class="crackers-badge">🚫 No Preservatives</span>
+      <span class="crackers-badge">💪 High Protein &amp; Fibre</span>
+      <span class="crackers-badge">🌿 Vegan</span>
+    </div>
+
+    <div class="crackers-flavours">
+
+      <div class="flavour-card">
+        <img src="images/6Rm3-2026-02-R63_7344.jpg" alt="Nordic Seed Crackers Classico">
+        <div class="flavour-info">
+          <h3>Classico</h3>
+          <p>The original. Pure sunflower, flax, pumpkin and sesame seeds — clean, crunchy and deeply satisfying.</p>
+        </div>
+      </div>
+
+      <div class="flavour-card">
+        <img src="images/6Rm3-2026-02-R63_7360.jpg" alt="Nordic Seed Crackers Rosemary">
+        <div class="flavour-info">
+          <h3>Rosemary</h3>
+          <p>Aromatic and earthy, with a herbal lift. The seed cracker elevated with the warmth of rosemary.</p>
+        </div>
+      </div>
+
+      <div class="flavour-card">
+        <img src="images/6Rm3-2026-02-R63_7382.jpg" alt="Nordic Seed Crackers Chilli">
+        <div class="flavour-info">
+          <h3>Chilli</h3>
+          <p>A bold, fiery twist. For those who like a kick — still seed-rich, still wholesome, still good for you.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="crackers-pair">
+      <img
+        src="images/6Rm3-2026-02-R63_7567.jpg"
+        alt="Nordic Seed Crackers paired with Lagom Næring salad bowl and dips"
+      >
+      <div class="crackers-pair-text">
+        <h3>Pairs beautifully with everything</h3>
+        <p>Enjoy on its own or alongside your Lagom Næring bowl. Perfect with dips, soups, cheese, salads and spreads.</p>
+        <p>Made with whole wheat flour, sunflower seeds, flax seeds, pumpkin seeds, sesame seeds and cold wood-pressed groundnut oil. Nothing else.</p>
+        <span class="cracker-weight">140g · Artisanal · Handcrafted in Bangalore</span>
+        <div class="cracker-cta">
+          <a href="#contact" class="btn btn-green">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ── Quote Banner ─────────────────────────────────────── -->
 <section class="quote-banner">
   <div class="container">
@@ -429,19 +554,19 @@
     <p class="section-sub">Every dish is crafted with whole ingredients, balanced macros, and flavours that keep you coming back.</p>
     <div class="gallery-grid">
       <div class="gal-item big">
-        <img src="images/food1.jpg" alt="Kale salad with roasted vegetables and pomegranate">
+        <img src="images/6Rm3-2026-02-R63_7489.jpg" alt="Kale salad with roasted butternut, chickpeas and pomegranate">
       </div>
       <div class="gal-item">
-        <img src="images/food2.jpg" alt="Quinoa salad with seeds and pomegranate">
+        <img src="images/6Rm3-2026-02-R63_7458.jpg" alt="Quinoa salad with pomegranate and fresh basil">
       </div>
       <div class="gal-item">
-        <img src="images/food3.jpg" alt="Kale and pumpkin salad with nutrition card">
+        <img src="images/6Rm3-2026-02-R63_7526.jpg" alt="Mediterranean couscous with olives and feta">
       </div>
       <div class="gal-item">
-        <img src="images/food4.jpg" alt="Wholesome bowl with quinoa and greens">
+        <img src="images/6Rm3-2026-02-R63_7520.jpg" alt="Green millet bowl with almonds and pomegranate">
       </div>
       <div class="gal-item">
-        <img src="images/food5.jpg" alt="Turkish lentil bowl with nutrition card">
+        <img src="images/6Rm3-2026-02-R63_7615.jpg" alt="Corporate lunch spread with crackers and dips">
       </div>
     </div>
   </div>
@@ -453,9 +578,9 @@
   <div class="container">
     <div class="about-intro">
       <p class="eye-label">Our Story</p>
-      <h2 class="section-title">Two health enthusiasts, one big idea</h2>
+      <h2 class="section-title">A doctor's vision, a partner's drive</h2>
       <p>
-        Lagom Næring was born from a simple belief: food should be both delicious <em>and</em> good for you.
+        Lagom Næring was founded on a simple belief: food should be both delicious <em>and</em> good for you.
         We draw on European and Mediterranean culinary traditions, guided by science, to create meals
         that genuinely fuel your best self.
       </p>
@@ -464,33 +589,29 @@
 
       <div class="founder-card">
         <div class="founder-photo">
-          <!-- Crops to Linda (left side of the team photo) -->
           <img
-            src="images/team.jpg"
-            alt="Linda Kokkola"
-            style="object-position: 14% center;"
+            src="images/ChatGPT Image Feb 13, 2026, 08_34_20 AM.png"
+            alt="Dr. Dhanalakshmi"
           >
         </div>
         <div class="founder-body">
-          <h3>Linda Kokkola</h3>
-          <p class="founder-role">Co-Founder, M.Sc.</p>
-          <p>Serial Entrepreneur &amp; Health Enthusiast. Linda combines business acumen with a deep passion for wholesome living to make healthy eating truly accessible.</p>
+          <h3>Dr. Dhanalakshmi</h3>
+          <p class="founder-role">Founder</p>
+          <p>Dentist · Yoga Therapist · PhD in Community Health. Dr. Dhana founded Lagom Næring on the belief that food is medicine — and that eating well should be both simple and joyful.</p>
         </div>
       </div>
 
       <div class="founder-card">
         <div class="founder-photo">
-          <!-- Crops to Dr. Dhana (right side of the team photo) -->
           <img
-            src="images/team.jpg"
-            alt="Dr. Dhanalakshmi"
-            style="object-position: 82% center;"
+            src="images/ChatGPT Image Feb 12, 2026, 09_01_24 AM.png"
+            alt="Linda Kokkola"
           >
         </div>
         <div class="founder-body">
-          <h3>Dr. Dhanalakshmi</h3>
-          <p class="founder-role">Co-Founder</p>
-          <p>Dentist · Yoga Therapist · PhD in Community Health. Dr. Dhana brings a deep understanding of how nutrition shapes long-term wellbeing at every stage of life.</p>
+          <h3>Linda Kokkola</h3>
+          <p class="founder-role">COO &amp; Early Partner, M.Sc.</p>
+          <p>Serial Entrepreneur &amp; Health Enthusiast. Linda brings Nordic culinary heritage and sharp business acumen to make Lagom Næring's mission a reality at every touchpoint.</p>
         </div>
       </div>
 
@@ -515,7 +636,7 @@
     <div class="contact-grid">
 
       <div class="contact-intro">
-        <p>Whether you want a one-time order, a corporate lunch plan, or just have a question — we'd love to hear from you.</p>
+        <p>Whether you want Nordic Seed Crackers, a corporate lunch plan, catering, or just have a question — we'd love to hear from you.</p>
         <ul class="cinfo-list">
           <li>
             <span class="ci">📞</span>
@@ -538,13 +659,6 @@
 
       <div class="contact-form">
         <h3>Send us a message</h3>
-        <!--
-          SETUP: Replace the action URL with your Formspree endpoint.
-          1. Go to https://formspree.io and sign up for free.
-          2. Create a new form and copy the endpoint URL.
-          3. Replace "https://formspree.io/f/YOUR_FORM_ID" below.
-          Alternatively, replace the entire form action with "mailto:info@lagom-naering.com"
-        -->
         <form action="https://formspree.io/f/mojkadpw" method="POST">
           <div class="fgroup">
             <label for="name">Your Name</label>
@@ -562,6 +676,7 @@
             <label for="interest">I'm interested in&hellip;</label>
             <select id="interest" name="interest">
               <option value="">Select a service</option>
+              <option value="crackers">Nordic Seed Crackers</option>
               <option value="corporate">Corporate Lunches</option>
               <option value="catering">Catering</option>
               <option value="subscription">Subscription</option>
@@ -590,7 +705,7 @@
 <!-- ── Footer ────────────────────────────────────────────── -->
 <footer>
   <div class="container footer-inner">
-    <span>&copy; 2025 Lagom N&aelig;ring. All rights reserved.</span>
+    <span>&copy; 2026 Lagom N&aelig;ring. All rights reserved.</span>
     <span class="footer-motto">Delicious. Wholesome.</span>
     <nav class="footer-links">
       <a href="mailto:info@lagom-naering.com">Email</a>
