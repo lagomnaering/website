@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="build" content="v3">
+  <meta name="build" content="v5">
   <meta name="description" content="Lagom Næring — European & Mediterranean inspired meals crafted for energy, focus & balance. Nordic Seed Crackers, corporate lunches, catering, and meal subscriptions.">
   <title>Lagom Næring — Delicious. Wholesome.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -289,6 +289,75 @@
       font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
     }
     .lagom-strip strong { color: #fff; font-style: normal; font-weight: 600; }
+
+    /* ── Testimonials ─────────────────────────────────── */
+    .testimonials { background: var(--cream-alt); }
+    .testimonials-carousel-wrap {
+      position: relative;
+      margin-top: 3rem;
+      overflow: hidden;
+    }
+    .testimonials-track {
+      display: flex;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2.8rem 3rem 2.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      flex: 0 0 100%;
+    }
+    .testimonial-stars { color: #E6A817; font-size: 1.1rem; letter-spacing: 0.06em; }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.8vw, 1.7rem);
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .testimonial-author { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    /* arrows */
+    .tc-arrow {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: #fff; border: none; border-radius: 50%;
+      width: 44px; height: 44px; cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-dark); font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
+      z-index: 2;
+    }
+    .tc-arrow:hover { background: var(--green-dark); color: #fff; }
+    .tc-prev { left: -22px; }
+    .tc-next { right: -22px; }
+    /* dots */
+    .tc-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 1.8rem;
+    }
+    .tc-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold); opacity: 0.3;
+      border: none; cursor: pointer; padding: 0;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .tc-dot.active { opacity: 1; transform: scale(1.25); }
+    .testimonials-source {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .testimonials-source a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 600px) {
+      .tc-prev { left: -10px; }
+      .tc-next { right: -10px; }
+      .testimonial-card { padding: 2rem 1.6rem 1.8rem; }
+    }
 
     /* ── Contact ──────────────────────────────────────── */
     .contact { background: var(--green-dark); color: #fff; }
@@ -626,6 +695,104 @@
     Inspired by <strong>Lagom</strong> philosophy — not too much, not too little.
   </div>
 </div>
+
+
+<!-- ── Testimonials ──────────────────────────────────────── -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <p class="eye-label">What People Say</p>
+    <h2 class="section-title">Loved by our community</h2>
+    <p class="section-sub">Real reviews from our Google Business listing.</p>
+    <div class="testimonials-carousel-wrap" id="tcWrap">
+      <button class="tc-arrow tc-prev" id="tcPrev" aria-label="Previous review">&#8592;</button>
+      <div class="testimonials-track" id="tcTrack">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Delicious authentic Mediterranean meals! One of a kind in Bangalore, nice feeling post-meal. Overall wholesome and delicious."</p>
+          <p class="testimonial-author">LN Reddy &nbsp;·&nbsp; Local Guide</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Very good salad bowl, very healthy and nourishing. Good portion size and customisable according to your needs. I would prefer to have this kind of bowl every day."</p>
+          <p class="testimonial-author">Venkatesh Babu D B</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Excellent, delicious and healthy food. Hope to see them expand their business and outlets."</p>
+          <p class="testimonial-author">Ganapathy Raman &nbsp;·&nbsp; Local Guide</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Like the nice spread of items in salad bowl for a healthy lunch 😊"</p>
+          <p class="testimonial-author">Rajesh Balay</p>
+        </div>
+
+      </div>
+      <button class="tc-arrow tc-next" id="tcNext" aria-label="Next review">&#8594;</button>
+    </div>
+    <div class="tc-dots" id="tcDots"></div>
+    <p class="testimonials-source">4.9 ★ on <a href="https://maps.app.goo.gl/lagomnaering" target="_blank" rel="noopener">Google Business</a> &nbsp;·&nbsp; 8 reviews</p>
+  </div>
+</section>
+<script>
+(function(){
+  const wrap  = document.getElementById('tcWrap');
+  const track = document.getElementById('tcTrack');
+  const cards = track.querySelectorAll('.testimonial-card');
+  const dotsWrap = document.getElementById('tcDots');
+  const total = cards.length;
+  let cur = 0, timer;
+
+  track.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
+
+  // build dots
+  cards.forEach((_,i) => {
+    const d = document.createElement('button');
+    d.className = 'tc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label', 'Review ' + (i+1));
+    d.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function go(n) {
+    cur = (n + total) % total;
+    const w = wrap.offsetWidth;
+    track.style.transform = 'translateX(-' + (cur * w) + 'px)';
+    dotsWrap.querySelectorAll('.tc-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+    resetTimer();
+  }
+
+  document.getElementById('tcPrev').addEventListener('click', () => go(cur - 1));
+  document.getElementById('tcNext').addEventListener('click', () => go(cur + 1));
+
+  // swipe support
+  let x0 = null;
+  track.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
+  track.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, {passive:true});
+
+  // recalculate on resize
+  window.addEventListener('resize', () => {
+    track.style.transition = 'none';
+    go(cur);
+    setTimeout(() => track.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)', 50);
+  });
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => go(cur + 1), 5000);
+  }
+  resetTimer();
+})();
+</script>
 
 
 <!-- ── Contact ───────────────────────────────────────────── -->
